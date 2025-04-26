@@ -1,0 +1,15 @@
+//import links 
+@import 'reset';
+@import 'variables';    
+@import 'global';
+@import 'typography';
+
+//components
+@import 'buttons';
+@import 'screen';
+
+//animations
+@import 'animations';
+
+//responsive
+@import 'media-queries';
