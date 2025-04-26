@@ -1,1 +1,23 @@
-/*# sourceMappingURL=header.css.map */
+.screen--hero {
+  background: url("../assets/images/hero-earth.jpg") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.screen--hero .content {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.screen--hero .scroll-down {
+  margin-top: 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  animation: bounce 2s infinite;
+}/*# sourceMappingURL=header.css.map */

@@ -1,16 +1,13 @@
-//import links 
-@import 'reset';
-@import 'variables';    
-@import 'global';
-@import 'typography';
+// Base
+@use "../base/reset";
+@use "../base/global";
+@use "../base/variables";
 
-//components
-@import '/styles/componets/header';
-@import '/styles/componets/scroll';
-@import 'buttons';
+// Components
+@use '../componets/header';
 
-//animations
-@import 'animations';
+// Animations
+@use '../animations/keyframes';
 
-//responsive
-@import 'media-queries';
+// Responsive
+@use '../base/typography';
