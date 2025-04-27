@@ -1,29 +1,15 @@
-// Select all sections and articles to observe
-// will add names from html later so it works 
-const observedEls = document.querySelectorAll("section, article");
+const startButton = document.getElementById('startButton');
 
-// IntersectionObserver callback
-function callback(entries, observer) {
-    entries.forEach((entry) => {
-        const hiddenClass = entry.target.dataset.hidden;
+if (startButton) {
+  startButton.addEventListener('click', () => {
+    console.log('Start button clicked!');
 
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            if (hiddenClass) entry.target.classList.remove(hiddenClass);
-        } else {
-            entry.target.classList.remove("show");
-            if (hiddenClass) entry.target.classList.add(hiddenClass);
-        }
-    });
+    const introSection = document.getElementById('intro');
+    if (introSection) {
+      introSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start' // 👈 ensures it scrolls to the TOP of the section
+      });
+    }
+  });
 }
-
-// Observer options
-const options = {
-    rootMargin: "-10% 0%",
-};
-
-// Create observer instance
-const observer = new IntersectionObserver(callback, options);
-
-// Observe each element
-observedEls.forEach((el) => observer.observe(el));

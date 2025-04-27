@@ -1,19 +1,17 @@
-// This is a SCSS file that contains the styles for the project.
 // Variables
-$primary-color: #4A90E2;
-$secondary-color: #50E3C2;
-$background-color: #f5f5f5;
+$primary-color: #e3ecf5;
+$secondary-color: #465c79;
+$background-color: #7289b5;
 $text-color: #333;
 
 // Typography
-$font-family-body: 'Arial', sans-serif; //endre etterpå 
+$font-family-body: 'Courier Prime', monospace;
 $font-family-titles: 'Poppins', sans-serif;
 
 // Font Sizes
 $font-size-base: 16px;
 $font-size-lg: 24px;
 $font-size-sm: 14px;
-
 
 html {
   font-size: 100%;
@@ -27,8 +25,113 @@ body {
   line-height: 1.6;
 }
 
-/* Titles use Poppins */
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-titles;
   color: $primary-color;
 }
+
+// hero sections 
+.screen--hero {
+    position: relative;
+    background: url('../assets/images/bg.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+  }
+  
+  .hero-background {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: 40%;
+    max-width: 400px;
+  }
+  
+  .earth {
+    width: 100%;
+    display: block;
+    animation: floatEarth 4s ease-in-out infinite;
+  }
+  
+  .cloud {
+    position: absolute;
+    max-width: 100%;
+    width: 160px;
+    opacity: 0.8;
+    animation: floatClouds 6s ease-in-out infinite;
+  }
+  
+  .cloud1 {
+    top: 2%;
+    left: 60%;
+    animation-delay: 0s;
+  }
+  
+  .cloud2 {
+    top: 20%;
+    left: -20%;
+    animation-delay: 1s;
+  }
+  
+  .cloud3 {
+    top: 70%;
+    left: -10%;
+    animation-delay: 2s;
+  }
+  
+  @keyframes floatClouds {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(20px) translateY(-10px); }
+    100% { transform: translateX(0) translateY(0); }
+  }
+  
+  @keyframes floatEarth {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .hero-content {
+    position: relative;
+    width: 50%; 
+    margin-left: auto; 
+    text-align: left;
+    color: #ffffff;
+    z-index: 2;
+    padding: 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+  }
+  
+  .start-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #7e9fb0;
+    color: white;
+    border: none;
+    width: 180px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-button:hover {
+    background-color: #a6bfd7;
+    color: #333;
+  }
