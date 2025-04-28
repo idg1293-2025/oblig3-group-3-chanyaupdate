@@ -1,4 +1,5 @@
 //The start button function 
+//Chanya: 
 const startButton = document.getElementById('startButton');
 
 if (startButton) {
