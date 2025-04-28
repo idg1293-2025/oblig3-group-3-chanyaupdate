@@ -9,7 +9,7 @@ if (startButton) {
     const introSection = document.getElementById('intro');
     if (introSection) {
       introSection.scrollIntoView({
-        behavior: 'smooth',
+        behavior: 'smooth', // Smooth scroll to the intro section
         block: 'start'
       });
     }
