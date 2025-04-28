@@ -50,21 +50,22 @@ p {
   transform: translateY(0);
 }
 
-html {
-  font-size: 100%;
+.end-message {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 100px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-body {
-  font-family: "Courier Prime", monospace;
-  font-size: 16px;
-  color: #333;
-  background-color: #7289b5;
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Poppins", sans-serif;
-  color: #e3ecf5;
+.highlighted-message.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .screen--hero {
