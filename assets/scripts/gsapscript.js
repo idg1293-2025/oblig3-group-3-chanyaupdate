@@ -18,16 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //scrolltrigger for text animation
 
-gsap.registerPlugin(ScrollTrigger); // Make sure ScrollTrigger is active (id name being scroll trigger)
+gsap.registerPlugin(ScrollTrigger);
 
-const texts = document.querySelectorAll('.text-block');
+const texts = document.querySelectorAll('.text-block, .end-message'); 
 
 texts.forEach(text => {
-  gsap.set(text, { opacity: 0, y: 50 }); // Set starting state (kan justere om du trenger)
+  gsap.set(text, { opacity: 0, y: 50 });
 
   ScrollTrigger.create({
-    trigger: text, // Each text-block is a triggerr
-    start: "top 80%", // This is to start the animation when the top of the text is 80% down the viewport
+    trigger: text,
+    start: "top 80%",
     onEnter: () => {
       gsap.to(text, { opacity: 1, y: 0, duration: 1, ease: "power2.out" });
     }

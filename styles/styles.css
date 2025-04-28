@@ -33,6 +33,24 @@ p {
   transform: translateY(0);
 }
 
+.end-message {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 100px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.highlighted-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 html {
   font-size: 100%;
 }
