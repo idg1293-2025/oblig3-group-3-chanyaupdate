@@ -41,108 +41,147 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     overflow: hidden;
     padding: 2rem;
+  
+    .hero-background {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      width: 40%;
+      max-width: 400px;
+    }
+  
+    .earth {
+      width: 100%;
+      display: block;
+      animation: floatEarth 4s ease-in-out infinite;
+    }
+  
+    .cloud {
+      position: absolute;
+      max-width: 100%;
+      width: 160px;
+      opacity: 0.8;
+      animation: floatClouds 6s ease-in-out infinite;
+  
+      &.cloud1 {
+        top: 2%;
+        left: 60%;
+        animation-delay: 0s;
+      }
+  
+      &.cloud2 {
+        top: 20%;
+        left: -20%;
+        animation-delay: 1s;
+      }
+  
+      &.cloud3 {
+        top: 70%;
+        left: -10%;
+        animation-delay: 2s;
+      }
+    }
+  
+    .hero-content {
+      position: relative;
+      width: 50%;
+      margin-left: auto;
+      text-align: left;
+      color: #ffffff;
+      z-index: 2;
+      padding: 1rem;
+  
+      h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 500px;
+      }
+  
+      .start-button {
+        display: inline-block;
+        font-family: $font-family-body;
+        padding: 0.8rem 2rem;
+        background-color: #2e7d32;
+        color: #ffffff;
+        border: none;
+        width: 200px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-align: center;
+  
+        &:hover,
+        &:focus {
+          background-color: #388e3c;
+          color: #ffffff;
+          transform: scale(1.05);
+          outline: none;
+        }
+  
+        &:focus-visible {
+          outline: 3px solid #ffffff;
+        }
+      }
+    }
   }
   
-  .hero-background {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    width: 40%;
-    max-width: 400px;
-  }
+
+  @media (max-width: 700px) {
+    .screen--hero {
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      padding: 1rem;
+      text-align: center;
   
-  .earth {
-    width: 100%;
-    display: block;
-    animation: floatEarth 4s ease-in-out infinite;
-  }
+      .hero-background {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 60%;
+        max-width: 300px;
+        margin-bottom: 1.5rem;
+      }
   
-  .cloud {
-    position: absolute;
-    max-width: 100%;
-    width: 160px;
-    opacity: 0.8;
-    animation: floatClouds 6s ease-in-out infinite;
-  }
+      .cloud {
+        width: 120px;
+        opacity: 0.7;
+      }
   
-  .cloud1 {
-    top: 2%;
-    left: 60%;
-    animation-delay: 0s;
-  }
+      .hero-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+        text-align: center;
   
-  .cloud2 {
-    top: 20%;
-    left: -20%;
-    animation-delay: 1s;
-  }
+        h1 {
+          font-size: 2rem;
+        }
   
-  .cloud3 {
-    top: 70%;
-    left: -10%;
-    animation-delay: 2s;
-  }
+        p {
+          font-size: 1rem;
+          margin: 0 auto 1.5rem auto;
+          max-width: 90%;
+        }
   
-  @keyframes floatClouds {
-    0% { transform: translateX(0) translateY(0); }
-    50% { transform: translateX(20px) translateY(-10px); }
-    100% { transform: translateX(0) translateY(0); }
+        .start-button {
+          width: 70%;
+          font-size: 1rem;
+          padding: 0.7rem 1rem;
+        }
+      }
+    }
   }
+
+
   
-  @keyframes floatEarth {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-  }
-  
-  .hero-content {
-    position: relative;
-    width: 50%; 
-    margin-left: auto; 
-    text-align: left;
-    color: #ffffff;
-    z-index: 2;
-    padding: 1rem;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 500px;
-  }
-  
-  //Button changes for more accessible design/ UX 
-  .start-button {
-    display: inline-block;
-    font-family: $font-family-body;
-    padding: 0.8rem 2rem;
-    background-color: #2e7d32; /* Stronger contrast green (climate-positive) */
-    color: #ffffff;
-    border: none;
-    width: 200px; 
-    border-radius: 8px; 
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-  }
-  
-  .start-button:hover,
-  .start-button:focus {
-    background-color: #388e3c; 
-    color: #ffffff;
-    transform: scale(1.05);  
-    outline: none; 
-  }
-  
-  .start-button:focus-visible {
-    outline: 3px solid #ffffff; /* Adds an accessible visible focus outline */
-  }
