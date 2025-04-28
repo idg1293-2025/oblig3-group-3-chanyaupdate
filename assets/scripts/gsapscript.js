@@ -14,4 +14,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-
+// compared to vanilla codes, gsap gives more control over the animation and is more efficient
