@@ -23,6 +23,7 @@ img {
   margin: 0 auto;
   position: sticky;
   top: 0;
+  object-fit: cover;
 }
 
 p {
@@ -44,6 +45,10 @@ p {
   line-height: 1.6;
 }
 
+.text-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 html {

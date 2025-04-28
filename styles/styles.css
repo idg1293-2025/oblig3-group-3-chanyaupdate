@@ -5,6 +5,8 @@ img {
   margin: 0 auto;
   position: sticky;
   top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 p {
@@ -24,6 +26,11 @@ p {
   font-size: 1.2rem;
   font-weight: 800;
   line-height: 1.6;
+}
+
+.text-block.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 html {
