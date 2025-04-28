@@ -20,17 +20,17 @@ document.addEventListener('DOMContentLoaded', function () {
 // Activate ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Select all text-block elements
-const texts = document.querySelectorAll('.text-block');
+gsap.registerPlugin(ScrollTrigger);
 
-// Set initial hidden state for all text-blocks
+const texts = document.querySelectorAll('.text-block, .end-message'); 
+
 texts.forEach(text => {
   gsap.set(text, { opacity: 0, y: 50 });
 
   // Create a ScrollTrigger for each text-block
   ScrollTrigger.create({
     trigger: text,
-    start: "top 80%", // Trigger animation when top of text-block reaches 80% down the screen
+    start: "top 80%",
     onEnter: () => {
       gsap.to(text, {
         opacity: 1,
