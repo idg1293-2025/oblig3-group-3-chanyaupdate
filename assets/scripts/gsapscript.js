@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const texts = document.querySelectorAll('.text-block, .end-message'); 
+const texts = document.querySelectorAll('.text-block, .end-message, .middle-text'); 
 
 texts.forEach(text => {
   gsap.set(text, { opacity: 0, y: 50 });
