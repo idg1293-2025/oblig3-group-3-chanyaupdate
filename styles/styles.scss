@@ -118,20 +118,31 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 500px;
   }
   
+  //Button changes for more accessible design/ UX 
   .start-button {
     display: inline-block;
+    font-family: $font-family-body;
     padding: 0.8rem 2rem;
-    background-color: #7e9fb0;
-    color: white;
+    background-color: #2e7d32; /* Stronger contrast green (climate-positive) */
+    color: #ffffff;
     border: none;
-    width: 180px;
-    border-radius: 5px;
-    font-size: 1rem;
+    width: 200px; 
+    border-radius: 8px; 
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
   }
   
-  .start-button:hover {
-    background-color: #a6bfd7;
-    color: #333;
+  .start-button:hover,
+  .start-button:focus {
+    background-color: #388e3c; 
+    color: #ffffff;
+    transform: scale(1.05);  
+    outline: none; 
+  }
+  
+  .start-button:focus-visible {
+    outline: 3px solid #ffffff; /* Adds an accessible visible focus outline */
   }
