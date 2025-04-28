@@ -17,19 +17,27 @@ document.addEventListener('DOMContentLoaded', function () {
 // compared to vanilla codes, gsap gives more control over the animation and is more efficient
 
 //scrolltrigger for text animation
+// Activate ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-gsap.registerPlugin(ScrollTrigger); // Make sure ScrollTrigger is active (id name being scroll trigger)
-
+// Select all text-block elements
 const texts = document.querySelectorAll('.text-block');
 
+// Set initial hidden state for all text-blocks
 texts.forEach(text => {
-  gsap.set(text, { opacity: 0, y: 50 }); // Set starting state (kan justere om du trenger)
+  gsap.set(text, { opacity: 0, y: 50 });
 
+  // Create a ScrollTrigger for each text-block
   ScrollTrigger.create({
-    trigger: text, // Each text-block is a triggerr
-    start: "top 80%", // This is to start the animation when the top of the text is 80% down the viewport
+    trigger: text,
+    start: "top 80%", // Trigger animation when top of text-block reaches 80% down the screen
     onEnter: () => {
-      gsap.to(text, { opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+      gsap.to(text, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out"
+      });
     }
   });
 });
