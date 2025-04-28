@@ -1,8 +1,8 @@
 // Variables
 $primary-color: #e3ecf5;
 $secondary-color: #465c79;
-$background-color: #7289b5;
-$text-color: #333;
+$background-color: #000000;
+$text-color: #6d6c6c;
 
 // Typography
 $font-family-body: 'Courier Prime', monospace;
@@ -14,7 +14,22 @@ $font-size-lg: 24px;
 $font-size-sm: 14px;
 
 //general page setting/styles 
-
+html {
+    font-size: 100%;
+  }
+  
+  body {
+    font-family: $font-family-body;
+    font-size: $font-size-base;
+    color: $text-color;
+    background-color: $background-color;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-titles;
+    color: $primary-color;
+  }
 
 img {
   max-width: 100%;
@@ -81,23 +96,6 @@ p {
 .highlighted-message.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-html {
-  font-size: 100%;
-}
-
-body {
-  font-family: $font-family-body;
-  font-size: $font-size-base;
-  color: $text-color;
-  background-color: $background-color;
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family-titles;
-  color: $primary-color;
 }
 
 // hero sections 

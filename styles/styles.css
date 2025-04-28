@@ -1,3 +1,20 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Courier Prime", monospace;
+  font-size: 16px;
+  color: #6d6c6c;
+  background-color: #000000;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+  color: #e3ecf5;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -64,23 +81,6 @@ p {
 .highlighted-message.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-html {
-  font-size: 100%;
-}
-
-body {
-  font-family: "Courier Prime", monospace;
-  font-size: 16px;
-  color: #333;
-  background-color: #7289b5;
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Poppins", sans-serif;
-  color: #e3ecf5;
 }
 
 .screen--hero {

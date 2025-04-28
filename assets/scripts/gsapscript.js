@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // compared to vanilla codes, gsap gives more control over the animation and is more efficient
 
 //scrolltrigger for text animation
+// Activate ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,11 +27,17 @@ const texts = document.querySelectorAll('.text-block, .end-message, .middle-text
 texts.forEach(text => {
   gsap.set(text, { opacity: 0, y: 50 });
 
+  // Create a ScrollTrigger for each text-block
   ScrollTrigger.create({
     trigger: text,
     start: "top 80%",
     onEnter: () => {
-      gsap.to(text, { opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+      gsap.to(text, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out"
+      });
     }
   });
 });
