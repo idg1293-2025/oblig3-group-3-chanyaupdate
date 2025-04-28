@@ -20,23 +20,21 @@ document.addEventListener('DOMContentLoaded', function () {
 // Activate ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.registerPlugin(ScrollTrigger);
-
-const texts = document.querySelectorAll('.text-block, .end-message, .middle-text'); 
+const texts = document.querySelectorAll('.text-block, .end-message, .middle-text'); //they select these classes
 
 texts.forEach(text => {
-  gsap.set(text, { opacity: 0, y: 50 });
+  gsap.set(text, { opacity: 0, y: 50 }); // Set initial state for each text-block
 
   // Create a ScrollTrigger for each text-block
   ScrollTrigger.create({
-    trigger: text,
-    start: "top 80%",
+    trigger: text,  
+    start: "top 80%", 
     onEnter: () => {
       gsap.to(text, {
         opacity: 1,
         y: 0,
         duration: 1,
-        ease: "power2.out"
+        ease: "power2.out" // this is the animation to fade in and move up built in 
       });
     }
   });
