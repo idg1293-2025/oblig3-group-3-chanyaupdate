@@ -2,6 +2,71 @@ Documentation:
 
 Oblig3 
 
+## How to Run the Project
+
+1. Download or clone the project folder from GitHub.
+2. Open the `index.html` file in your browser (double click or drag into a browser window).
+3. Make sure the file structure is preserved (HTML, styles, and assets must remain in their folders).
+4. No installation is required – everything runs in the browser.
+
+Recommended browser: Chrome or Firefox (to ensure GSAP and animations work smoothly).
+
+
+STORYBOARD:
+1. Hero Section
+Visual: Floating Earth and clouds with a dark, atmospheric background
+Text: Title and description of the project
+Interaction: User clicks “Start” to begin the story
+
+2–3. Medical imagery
+Visual: Earth’s medical record, doctor entering the room
+Text: No dialogue – quiet introduction
+Purpose: Establish mood and mystery
+
+4–5. Dialogue begins
+Visual: Earth in the room
+Text: “Hello, Earth. What brings you here today?”
+Interaction: Scroll to reveal emotional dialogue slowly
+
+6–9. Earth opens up emotionally
+Visual: Close-up images of Earth
+Text: Descriptions of environmental degradation
+Effect: Deeper emotional tone builds
+
+10–13. Conflict builds
+Visual: Earth starts to realize the truth
+Text: “You’re not here to heal me…”
+Purpose: Emotional turning point
+
+14. Spotlight scene
+Visual: Radial spotlight effect focuses on Earth
+Text: “No. Not like this.”
+Mood: Reflection and realization
+
+15–25. Flashback & memory
+Visual: Series of dark, atmospheric images
+Text: “There was warmth… strength… breath…”
+Effect: Poetic pacing, environmental nostalgia
+
+26–36. Betrayal of nature
+Visual: Earth’s face; emotional darkness
+Text: “They silenced the winds... burned the forests…”
+Purpose: Peak of emotional intensity
+
+37. Glitch sequence
+Visual: Background starts to glitch and distort
+Text: “I remember now.”
+Effect: Glitch intensifies → white flash → blackout
+
+38. Final messages
+Visual: Black screen
+Text:
+“Some endings are chosen by silence.”
+“To turn away is still a choice.”
+“This is the only home we have.”
+“Take action. Now.”
+Effect: White text fades in one by one → powerful ending
+
 Structure: 
 - We used a simple structure in our project with one scss file with variables, styling and animations etc. 
 - Then the js and images are in assets 
@@ -58,6 +123,15 @@ The original JavaScript handled smooth scrolling from the Hero section and basic
 As the project developed into a full scroll-based narrative, we had to extend the JavaScript to support multiple sections, control text fade timings with GSAP ScrollTrigger, trigger glitch animations using IntersectionObserver, and coordinate the blackout sequence.
 
 These adjustments allowed the story to evolve naturally as users scrolled, matching the intended emotional pacing and creating a seamless transition between scenes.
+
+
+
+
+
+
+
+
+
 
 ---
 Future Improvements:
