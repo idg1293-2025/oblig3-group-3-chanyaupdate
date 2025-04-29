@@ -46,18 +46,28 @@ p {
   z-index: 1;
 }
 
+section > div {
+  position: relative;
+}
+
+section > div img {
+  width: 100%;
+  display: block;
+}
+
 .text-block {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  transform: translate(0, 0);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-  margin-top: 700px;
-  max-width: 80%;
+  z-index: 10;
+  max-width: 600px;
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba (0, 0, 0, 0.2);
-  font-size: 1.2rem;
-  font-weight: 800;
-  line-height: 1.6;
 }
 
 .middle-text {
@@ -257,6 +267,30 @@ p {
 }
 
 /* Tekst */
+
+.scene {
+  position: relative;
+}
+
+.scene img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scene .text-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Sentraliser tekst */
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+}
+
+
 .slut {
   position: absolute;
   top: 95%;
@@ -268,6 +302,27 @@ p {
   text-shadow: 0 0 5px black;
   z-index: 5;
   pointer-events: none;
+}
+
+.message-section {
+  background: transparent; /* Vi bruker fortsatt svart fra blackout */
+  position: relative; /* viktig */
+  z-index: 1500; /* høyere enn blackout sin 1000 */
+  min-height: 400vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 2rem;
+}
+
+.message {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  opacity: 0;
+  text-align: center;
+  margin: 50vh 0; /* masse luft før og etter */
 }
 
 /* Blackout (skjerm blir svart) */

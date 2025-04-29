@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="/styles/styles.css">
 
 
-    <!-- scripts -->
-    <script src="/assets/scripts/gsapscript.js" defer></script>
-    <!-- Load GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>
+  <!-- Load GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+
+  <!-- script last for right order otherwise nothing works -->
+  <script src="/assets/scripts/gsapscript.js" defer></script>
 </head>
 
 <body>
@@ -274,46 +275,23 @@
         </div>
     </section>
 
-
     <!--Section 11-->
-    <section>
-        <div>
-            <img src="assets/images/blackscreen.PNG" alt="black screen">
-            <div class="end-message">
-                <p>Some endings are chosen by silence.</p>
-            </div>
-        </div>
-    </section>
 
-    <!--Section 12-->
-    <section>
-        <div>
-            <img src="assets/images/blackscreen.PNG" alt="black screen">
-            <div class="end-message">
-                <p>Not all destruction roars. Some whispers.</p>
-            </div>
+    <section class="message-section">
+        <div class="message">
+          <p>Some endings are chosen by silence.</p>
         </div>
-    </section>
-
-    <!--Section 13-->
-    <section>
-        <div>
-            <img src="assets/images/blackscreen.PNG" alt="black screen">
-            <div class="end-message">
-                <p>What we refuse to see, we cannot save.</p>
-            </div>
+        <div class="message">
+          <p>Not all destruction roars. Some whispers.</p>
         </div>
-    </section>
-
-    <!--Section 14-->
-    <section>
-        <div>
-            <img src="assets/images/blackscreen.PNG" alt="black screen">
-            <div class="end-message">
-                <p>To turn away is still a choice.</p>
-            </div>
+        <div class="message">
+          <p>What we refuse to see, we cannot save.</p>
         </div>
-    </section>
+        <div class="message">
+          <p>To turn away is still a choice.</p>
+        </div>
+      </section>
+    
 
 
     <!--Section (OPTIONAL)-->
