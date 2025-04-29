@@ -52,5 +52,13 @@ Why GSAP?
 - It offers better performance, ease of timing control, and professional scroll-triggered animations.
 
 ---
+
+JavaScript Adjustments:
+The original JavaScript handled smooth scrolling from the Hero section and basic text fades.
+As the project developed into a full scroll-based narrative, we had to extend the JavaScript to support multiple sections, control text fade timings with GSAP ScrollTrigger, trigger glitch animations using IntersectionObserver, and coordinate the blackout sequence.
+
+These adjustments allowed the story to evolve naturally as users scrolled, matching the intended emotional pacing and creating a seamless transition between scenes.
+
+---
 Future Improvements:
 If time allowed, we would add subtle ambient background sound, adaptive scroll speeds, and an animated sprout or star as a final visual element after the final message.
