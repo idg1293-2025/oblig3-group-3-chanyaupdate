@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Animate text blocks
-  const textBlocks = document.querySelectorAll('.text-block');
+  const textBlocks = document.querySelectorAll('.text-block, .middle-text');
 
   textBlocks.forEach(block => {
     gsap.set(block, { opacity: 0, y: 20 });
