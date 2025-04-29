@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     ScrollTrigger.create({
       trigger: block,
-      start: "top 80%",   // Start fading in when block reaches 80% of viewport
-      end: "top 40%",     // Start fading out when block reaches 40%
-      scrub: true,        // Smooth animation following scroll
+      start: "top 100%",   // Start fading in when block reaches 80% of viewport
+      end: "top 60%",     // Start fading out when block reaches 40%
+      scrub: 0.5,        // Smooth animation following scroll
       onEnter: () => {
         gsap.to(block, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" });
       },
