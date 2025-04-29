@@ -52,5 +52,5 @@ Why GSAP?
 - It offers better performance, ease of timing control, and professional scroll-triggered animations.
 
 ---
-
-
+Future Improvements:
+If time allowed, we would add subtle ambient background sound, adaptive scroll speeds, and an animated sprout or star as a final visual element after the final message.
