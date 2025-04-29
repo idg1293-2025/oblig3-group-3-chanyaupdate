@@ -2,6 +2,8 @@ Documentation:
 
 Oblig3 
 
+https://github.com/idg1293-2025/oblig3-group-3.git
+
 ## How to Run the Project
 
 1. Download or clone the project folder from GitHub.
@@ -128,7 +130,13 @@ These adjustments allowed the story to evolve naturally as users scrolled, match
 
 
 
-
+Animations used:
+- Floats (earth and cloud)
+- Text-fade in 
+- Hero button hover 
+- glitch effect: by moving the screen for the effect 
+- blackout fade: smooth transition (opacity)
+- blink effect: quick flash (transition over 0.2 sec).
 
 
 
