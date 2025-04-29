@@ -11,16 +11,20 @@
     <link rel="stylesheet" href="/styles/styles.css">
 
 
-     <!-- scripts -->
+    <!-- scripts -->
     <script src="/assets/scripts/gsapscript.js" defer></script>
-     <!-- Load GSAP -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <!-- Load GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
+    <!--I have to put these here at the top for glitch-effect-->
+    <div class="blackout"></div>
+    <div class="blink"></div>
+
 
     <!-- HERO SECTION -->
     <section class="screen screen--hero">
@@ -128,9 +132,9 @@
 
             <div class="text-block">
                 <p>Doctor: It’s completely normal to feel this way under stress. You’re experiencing a temporary
-                    instability
-                    — nothing more. These fluctuations happen naturally. Our responsibility is to maintain appearances —
-                    …I mean, to ensure your recovery is properly supported.</p>
+                    instability — nothing more. These fluctuations happen naturally. Our responsibility is to maintain
+                    appearances</p>
+                <p>…I mean to ensure your recovery is properly supported.</p>
             </div>
 
         </div>
@@ -160,7 +164,7 @@
             <img src="assets/images/scene8.PNG"
                 alt="Dark, serious surrondings, earths eyes are shut as she is remembering">
             <div class="middle-text">
-                <p>Earth…No. Not like this.</p>
+                <p>…No. Not like this.</p>
             </div>
 
             <div class="middle-text">
@@ -224,7 +228,11 @@
             </div>
 
             <div class="middle-text">
-                <p>But they forgot how to ask. They forgot how to listen.</P>
+                <p>But they forgot how to ask.</p>
+            </div>
+
+            <div class="middle-text">
+                <p>They forgot how to listen.</P>
             </div>
 
             <div class="middle-text">
@@ -258,14 +266,14 @@
 
     <!--SECTION 10-->
     <section>
-        <div>
-            <img src="assets/images/scene10.PNG" alt="still zoomed in, but earth opens her eyes before last sentence">
-            <div class="middle-text">
+        <div class="glitch-container">
+            <div class="glitch-img"></div> <!-- Ikke <img> lenger -->
+            <div class="slut">
                 <p>I remember now</p>
             </div>
-
         </div>
     </section>
+
 
     <!--Section 11-->
     <section>
@@ -318,7 +326,7 @@
 
 
 
-    
+
 </body>
 
 </html>

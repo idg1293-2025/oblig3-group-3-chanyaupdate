@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //scrolltrigger for text animation
 // Activate ScrollTrigger
+
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +28,7 @@ const texts = document.querySelectorAll('.text-block, .end-message, .middle-text
 texts.forEach(text => {
   gsap.set(text, { opacity: 0, y: 50 });
 
-  // Create a ScrollTrigger for each text-block
+  //ScrollTrigger for each text-block
   ScrollTrigger.create({
     trigger: text,
     start: "top 80%",
@@ -41,3 +42,32 @@ texts.forEach(text => {
     }
   });
 });
+
+
+// Glitch effect on image
+// Waits 3s after image is visible, then starts mild glitch
+// After 2s of mild glitch, switches to intense glitch
+
+
+const glitchImg = document.querySelector('.glitch-img');
+
+  if (glitchImg) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // when glitch-image comes in view:
+          setTimeout(() => {
+            glitchImg.classList.add('start-glitch');
+
+            // after 2 seconds,  over to intens glitch
+            setTimeout(() => {
+              glitchImg.classList.add('full-glitch');
+            }, 2000);
+
+          }, 3000); // waits 3 seconds after visibility
+        }
+      });
+    }, { threshold: 0.5 }); // 50% image visible before it begins
+
+    observer.observe(glitchImg);
+  }
