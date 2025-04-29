@@ -26,19 +26,19 @@ document.addEventListener('DOMContentLoaded', function () {
     ScrollTrigger.create({
       trigger: block,
       start: "top 100%",   // Start fading in when block reaches 80% of viewport
-      end: "top 60%",     // Start fading out when block reaches 40%
+      end: "bottom 30%",     // Start fading out when block reaches 40%
       scrub: 0.5,        // Smooth animation following scroll
       onEnter: () => {
-        gsap.to(block, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" });
+        gsap.to(block, { opacity: 1, y: 0, duration: 2, ease: "power2.out" });
       },
       onLeave: () => {
-        gsap.to(block, { opacity: 0, y: -20, duration: 1.5, ease: "power2.in" });
+        gsap.to(block, { opacity: 0, y: -20, duration: 2, ease: "power2.in" });
       },
       onEnterBack: () => {
-        gsap.to(block, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" });
+        gsap.to(block, { opacity: 1, y: 0, duration: 2, ease: "power2.out" });
       },
       onLeaveBack: () => {
-        gsap.to(block, { opacity: 0, y: 20, duration: 1.5, ease: "power2.in" });
+        gsap.to(block, { opacity: 0, y: 20, duration: 2, ease: "power2.in" });
       }
     });
   });
