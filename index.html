@@ -72,12 +72,13 @@
   <section>
     <div>
       <img src="assets/images/scene4.PNG" alt="Earth looking down again" />
-      <div class="text-block" data-lines="It started small.|Now everything hurts.">
+      <div class="text-block">
         <p class="dialog-line"></p>
-        <button>continue...</button>
+        <button id="continue-btn">Talk...</button>
       </div>
     </div>
   </section>
+  
 
   <!-- Scene 6 -->
   <section>
@@ -110,14 +111,11 @@
   </section>
 
   <!-- Scene 9 – Earth speaks to user -->
-<section>
+  <section id="scene-choice-container" class="container-scene">
     <div class="text-block auto-dialog" data-lines="Are you listening?|Do you hear me now?">
       <p class="dialog-line"></p>
     </div>
-  </section>
-
-  <!-- Scene 10 – User chooses -->
-  <section id="scene-choice">
+  
     <div class="text-block">
       <p>What will you do?</p>
       <button onclick="goToScene('scene-help')">Help Earth</button>

@@ -1,17 +1,15 @@
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Scroll to first scene on start button click
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll to first scene
   const startButton = document.getElementById('startButton');
   const firstScene = document.querySelector('#scene1');
-
+  
   if (startButton && firstScene) {
-    startButton.addEventListener('click', () => {
-      scrollToScene(firstScene);
-    });
+    startButton.addEventListener('click', () => scrollToScene(firstScene));
   }
 
-  // Animate all text blocks (.text-block and .middle-text) on scroll
+  // Animate .text-block and .middle-text on scroll
   document.querySelectorAll('.text-block, .middle-text').forEach(block => {
     gsap.set(block, { opacity: 0, y: 20 });
 
@@ -27,86 +25,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Scene 5: Manual dialog typing (user clicks "Next")
-document.querySelectorAll('.text-block[data-lines]:not(.auto-dialog)').forEach(block => {
-  const button = block.querySelector('button');
-  const paragraph = block.querySelector('.dialog-line');
-  const lines = block.dataset.lines.split('|');
-  block.dataset.current = "0";
+  // Scene 5: Manual "Next" dialog typing
+  const facts = [
+    "Deforestation destroys 10 million hectares of forest every year.",
+    "Over 800 million people go to bed hungry each night.",
+    "Air pollution causes 7 million premature deaths annually."
+  ];
 
-  if (button && paragraph) {
-    button.addEventListener('click', function () {
-      if (button.dataset.typing === "true") return;
+  let currentIndex = 0;
+  const dialogLine = document.querySelector(".dialog-line");
+  const button = document.getElementById("continue-btn");
 
-      let current = parseInt(block.dataset.current);
-      if (current >= lines.length) {
-        button.style.display = "none";
-        return;
+  // Typewriter function
+  let isTyping = false;
+  function typeText(text, callback) {
+    let charIndex = 0;
+    dialogLine.textContent = "";
+    isTyping = true;
+
+    const interval = setInterval(() => {
+      if (charIndex < text.length) {
+        dialogLine.textContent += text.charAt(charIndex);
+        charIndex++;
+      } else {
+        clearInterval(interval);
+        isTyping = false;
+        if (callback) callback();
       }
-
-      paragraph.textContent = "";
-      button.dataset.typing = "true";
-      const text = lines[current];
-      let i = 0;
-
-      function typeChar() {
-        if (i < text.length) {
-          paragraph.textContent += text.charAt(i);
-          i++;
-          setTimeout(typeChar, 30); // Typing speed
-        } else {
-          button.dataset.typing = "false";
-          block.dataset.current = current + 1;
-        }
-      }
-
-      typeChar();
-    });
+    }, 40); // speed
   }
-});
 
-  // Auto-typing effect for blocks without buttons
-  document.querySelectorAll('.text-block.auto-dialog[data-lines]').forEach(block => {
-    const paragraph = block.querySelector('.dialog-line');
-    const lines = block.dataset.lines.split('|');
-    let current = 0;
+  // Button event handler for typing
+  button.addEventListener("click", () => {
+    if (isTyping) return; 
 
-    function typeLine(text, callback) {
-      paragraph.textContent = "";
-      let i = 0;
-
-      function typeChar() {
-        if (i < text.length) {
-          paragraph.textContent += text.charAt(i);
-          i++;
-          setTimeout(typeChar, 35);
-        } else if (callback) {
-          callback();
-        }
-      }
-
-      typeChar();
+    if (currentIndex < facts.length) {
+      typeText(facts[currentIndex], () => currentIndex++);
+    } else {
+      typeText("I am sick! and...");
+      button.disabled = true;
     }
-
-    ScrollTrigger.create({
-      trigger: block,
-      start: "top 90%",
-      once: true,
-      onEnter: () => {
-        function next() {
-          if (current < lines.length) {
-            typeLine(lines[current], () => {
-              current++;
-              setTimeout(next, 700); // Pause between lines
-            });
-          }
-        }
-        next();
-      }
-    });
   });
 
-  // Reveal end scenes (fade in on scroll)
+  // Fade-in for final scenes
   ['#scene-help', '#scene-ignore', '#ending'].forEach(selector => {
     const section = document.querySelector(selector);
     if (section) {
@@ -114,7 +75,7 @@ document.querySelectorAll('.text-block[data-lines]:not(.auto-dialog)').forEach(b
 
       ScrollTrigger.create({
         trigger: section,
-        start: 'top 80%',
+        start: 'top 90%',
         onEnter: () => {
           gsap.to(section, {
             opacity: 1,
@@ -127,18 +88,31 @@ document.querySelectorAll('.text-block[data-lines]:not(.auto-dialog)').forEach(b
       });
     }
   });
+
+  // Scroll back to top
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: 0 },
+        ease: "power2.inOut"
+      });
+    });
+  }
 });
 
-// Function to scroll to any scene with padding offset
+// Generic scroll helper for scene buttons
 function goToScene(id) {
   const section = document.getElementById(id);
   if (section) scrollToScene(section);
 }
 
-// Smooth scroll with offset helper
+// Robust scroll function
 function scrollToScene(targetSection) {
-  const offset = 80; // Adjust this as needed
-  const targetY = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+  const rect = targetSection.getBoundingClientRect();
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const targetY = rect.top + scrollTop;
 
   gsap.to(window, {
     duration: 1.5,
@@ -146,12 +120,3 @@ function scrollToScene(targetSection) {
     ease: "power2.inOut"
   });
 }
-
-// Scroll back to top
-document.getElementById('backToTop')?.addEventListener('click', () => {
-  gsap.to(window, {
-    duration: 1,
-    scrollTo: { y: 0 },
-    ease: "power2.inOut"
-  });
-});
