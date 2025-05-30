@@ -146,3 +146,4 @@ Animations used:
 
 ------
 LIVE SERVER: https://chanyas.folk.ntnu.no/tellus-climatechange/oblig3-group-3-chanyaupdate/index.html
+LIVE SERVER for previous: https://chanyas.folk.ntnu.no/oblig3-group-3/index.html
