@@ -476,7 +476,7 @@ section > div:not(.story-layout):not(.container-scene) #continue-btn:focus-visib
   }
   .container-scene .text-block {
     padding: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
     box-shadow: none;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -486,21 +486,21 @@ section > div:not(.story-layout):not(.container-scene) #continue-btn:focus-visib
     max-width: 100%;
   }
   .container-scene .text-block p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .container-scene .text-block button {
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
   }
   .middle-text {
-    font-size: 1.4rem;
+    font-size: 1rem;
     padding: 1rem;
   }
   h2 {
     font-size: 1.6rem;
   }
   .text-block, .middle-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 1rem;
   }
   .scene-story .story-earth img {
