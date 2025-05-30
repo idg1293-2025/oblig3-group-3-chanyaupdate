@@ -70,9 +70,13 @@ Text:
 Effect: White text fades in one by one → powerful ending
 
 Structure: 
-- We used a simple structure in our project with one scss file with variables, styling and animations etc. 
+-  I used a simple structure in our project with one scss file with variables, styling and animations etc. 
 - Then the js and images are in assets 
 - The html stays outside and we moved the task in its own folder to tidy it.
+
+UPDATE/ improvements:
+- I used more classes but kept a similar structures 
+- I wanted to shorten the story but keep the same concept 
 
 ---
 
@@ -94,8 +98,12 @@ The SCSS controls the overall design of the website and makes it responsive.
 - Hero Section (.screen--hero): Designed to take up the full viewport (100vh), center the hero content, and create a smooth animated background experience using float animations on images.
 - Responsive Design: Special styles ensure the hero section adjusts nicely for smaller screens below 700px wide.
 
+UPDATE/ improvements:
+- I added a new method of compiling css styling for the cloud which made the code abit shorter and easier to manage and look at. 
+
 Animations:
 - @keyframes floatClouds and floatEarth are used to create subtle, looping floating animations for the hero items to make the page feel more alive.
+- @keyframes for the cloud as well with some delay 
 
 ---
 
@@ -126,7 +134,8 @@ As the project developed into a full scroll-based narrative, we had to extend th
 
 These adjustments allowed the story to evolve naturally as users scrolled, matching the intended emotional pacing and creating a seamless transition between scenes.
 
-
+UPDATE: 
+- I kept the java the same for the scroll trigger but added spesific ones for dialogs and interactivity 
 
 
 
@@ -134,13 +143,6 @@ Animations used:
 - Floats (earth and cloud)
 - Text-fade in 
 - Hero button hover 
-- glitch effect: by moving the screen for the effect 
-- blackout fade: smooth transition (opacity)
-- blink effect: quick flash (transition over 0.2 sec).
 
-
-
-
----
-Future Improvements:
-If time allowed, we would add subtle ambient background sound, adaptive scroll speeds, and an animated sprout or star as a final visual element after the final message.
+------
+LIVE SERVER: https://chanyas.folk.ntnu.no/(name)/oblig3.group-3-chanyaupdate/index.html

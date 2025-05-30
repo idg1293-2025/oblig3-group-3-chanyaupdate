@@ -1,3 +1,36 @@
+@keyframes floatClouds {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(20px) translateY(-10px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes floatEarth {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 html {
   font-size: 100%;
 }
@@ -34,47 +67,6 @@ p {
   text-align: center;
 }
 
-section > div {
-  position: relative;
-}
-section > div .text-block {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  max-width: 100%;
-  padding: 2rem 2.5rem;
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 1.2rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-}
-section > div .text-block p {
-  margin-bottom: 0rem;
-}
-section > div .text-block button {
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  background-color: #00c853;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-section > div .text-block button:hover {
-  background-color: #00b342;
-  transform: scale(1.05);
-}
-section > div .text-block button:focus-visible {
-  outline: 2px solid white;
-}
-
 section > div img {
   width: 100%;
   display: block;
@@ -91,36 +83,9 @@ section > div img {
   text-align: center;
 }
 .container-scene .text-block {
-  max-width: 700px;
-  padding: 2rem 1.5rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
   background: transparent;
   box-shadow: none;
-}
-.container-scene .text-block p {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-.container-scene .text-block button {
-  margin-top: 1rem;
-  background-color: #009688;
-  color: white;
-  padding: 1rem 2.5rem;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.container-scene .text-block button:hover {
-  background-color: #00796b;
-  transform: scale(1.05);
-}
-.container-scene .text-block button:focus-visible {
-  outline: 3px solid white;
+  font-size: 1.5rem;
 }
 
 .dialog-line {
@@ -144,25 +109,42 @@ section > div img {
   text-align: center;
 }
 
+.text-block {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  text-align: center;
+}
+
 .screen--hero {
-  position: relative;
-  background: url("../assets/images/bg.png") no-repeat center center;
-  background-size: cover;
-  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+  justify-content: center;
+  gap: 4rem;
+  height: 100vh;
   padding: 2rem 4rem;
-  gap: 2rem;
+  background: url("../assets/images/bg.png") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 .screen--hero .hero-items {
-  position: relative;
-  flex: 1 1 40%;
+  flex: 0 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 400px;
+  position: relative;
 }
 .screen--hero .hero-items .earth {
-  width: 80%;
+  width: 100%;
+  max-width: 300px;
   animation: floatEarth 4s ease-in-out infinite;
 }
 .screen--hero .hero-items .cloud {
@@ -171,28 +153,33 @@ section > div img {
   opacity: 0.8;
   animation: floatClouds 6s ease-in-out infinite;
 }
-.screen--hero .hero-items .cloud1 {
+.screen--hero .hero-items .cloud.cloud1 {
   top: 2%;
   left: 60%;
 }
-.screen--hero .hero-items .cloud2 {
+.screen--hero .hero-items .cloud.cloud2 {
   top: 20%;
   left: -10%;
   animation-delay: 1s;
 }
-.screen--hero .hero-items .cloud3 {
+.screen--hero .hero-items .cloud.cloud3 {
   top: 70%;
   left: 1%;
   animation-delay: 2s;
 }
 .screen--hero .hero-content {
-  flex: 1 1 50%;
+  flex: 0 1 50%;
   text-align: left;
   color: white;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .screen--hero .hero-content h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -213,9 +200,6 @@ section > div img {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
 }
 .screen--hero .hero-content .start-button:hover {
   background-color: #388e3c;
@@ -225,22 +209,122 @@ section > div img {
   outline: 3px solid white;
 }
 
+.scene-story {
+  padding: 6rem 2rem;
+  color: white;
+  position: relative;
+}
+.scene-story .story-layout {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+.scene-story .story-earth {
+  flex: 1;
+  position: sticky;
+  top: 20vh;
+}
+.scene-story .story-earth img {
+  width: 70%;
+  max-width: 300px;
+  animation: float 4s ease-in-out infinite;
+}
+.scene-story .story-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.scene-story .story-text .text-block {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  text-align: center;
+}
+
+section > div:not(.story-layout):not(.container-scene) {
+  position: relative;
+}
+section > div:not(.story-layout):not(.container-scene) .text-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  opacity: 1;
+}
+section > div:not(.story-layout):not(.container-scene) #continue-btn {
+  margin-top: 1.5rem;
+  background-color: #2e7d32;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: "Courier Prime", monospace;
+}
+section > div:not(.story-layout):not(.container-scene) #continue-btn:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+section > div:not(.story-layout):not(.container-scene) #continue-btn:focus-visible {
+  outline: 2px solid white;
+}
+
+.choice-button {
+  margin: 0.5rem 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #009688;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: "Courier Prime", monospace;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.choice-button:hover {
+  background-color: #00796b;
+  transform: scale(1.05);
+}
+.choice-button:focus-visible {
+  outline: 2px solid white;
+}
+
 #scene-help,
-#scene-ignore,
-#ending {
+#scene-ignore {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 6rem 2rem 4rem;
-  margin-top: 4rem;
-  color: white;
+  padding: 6rem 2rem 6rem;
+  margin-bottom: 4rem;
   text-align: center;
+  color: white;
 }
 #scene-help .middle-text,
-#scene-ignore .middle-text,
-#ending .middle-text {
+#scene-ignore .middle-text {
   max-width: 700px;
   margin: 0 auto;
   padding: 0;
@@ -249,17 +333,62 @@ section > div img {
   line-height: 1.5;
 }
 #scene-help .middle-text p,
-#scene-ignore .middle-text p,
-#ending .middle-text p {
+#scene-ignore .middle-text p {
   margin-bottom: 1.5rem;
 }
-#scene-help .cta-button,
-#scene-ignore .cta-button,
+
+.cta-button {
+  display: block;
+  margin: 2rem auto;
+  background-color: #00c853;
+  color: white;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Courier Prime", monospace;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.cta-button:hover {
+  background-color: #00b342;
+  transform: scale(1.05);
+}
+.cta-button:focus-visible {
+  outline: 3px solid white;
+}
+
+#ending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 6rem 2rem 8rem;
+  margin-bottom: 4rem;
+  color: white;
+  text-align: center;
+}
+#ending h2 {
+  font-family: "Courier Prime", monospace;
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+#ending p {
+  font-family: "Courier Prime", monospace;
+  font-size: 1.6rem;
+  margin-bottom: 2.5rem;
+}
 #ending .cta-button {
   background-color: #00c853;
   color: white;
   padding: 1rem 2.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   border: none;
   border-radius: 10px;
@@ -268,59 +397,13 @@ section > div img {
   font-family: "Courier Prime", monospace;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  margin-top: 1.5rem;
 }
-#scene-help .cta-button:hover,
-#scene-ignore .cta-button:hover,
 #ending .cta-button:hover {
   background-color: #00b342;
   transform: scale(1.05);
 }
-#scene-help .cta-button:focus-visible,
-#scene-ignore .cta-button:focus-visible,
 #ending .cta-button:focus-visible {
-  outline: 3px solid white;
-}
-
-.ending {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 6rem 2rem 4rem;
-  color: white;
-  text-align: center;
-}
-.ending h2 {
-  font-family: "Courier Prime", monospace;
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
-  line-height: 1.4;
-}
-.ending p {
-  font-family: "Courier Prime", monospace;
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-}
-.ending .cta-button {
-  background-color: #00c853;
-  color: white;
-  padding: 2rem 3%;
-  font-size: 2rem;
-  font-weight: bold;
-  width: 300px;
-  border: none;
-  border-radius: 12px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-.ending .cta-button:hover {
-  background-color: #00b342;
-  transform: scale(1.05);
-}
-.ending .cta-button:focus-visible {
   outline: 3px solid white;
 }
 
@@ -349,28 +432,6 @@ section > div img {
   outline: 3px solid white;
 }
 
-@keyframes floatClouds {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(20px) translateY(-10px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
-@keyframes floatEarth {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
 @media screen and (max-width: 550px) {
   .screen--hero {
     flex-direction: column;
@@ -392,20 +453,6 @@ section > div img {
   .screen--hero .hero-items .cloud3 {
     width: 100px;
     position: absolute;
-  }
-  .screen--hero .hero-items .cloud1 {
-    top: 10%;
-    left: 60%;
-  }
-  .screen--hero .hero-items .cloud2 {
-    top: 30%;
-    left: 25%;
-    animation-delay: 1s;
-  }
-  .screen--hero .hero-items .cloud3 {
-    top: 10%;
-    left: 15%;
-    animation-delay: 2s;
   }
   .screen--hero .hero-content {
     width: 100%;
@@ -429,7 +476,7 @@ section > div img {
   }
   .container-scene .text-block {
     padding: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     box-shadow: none;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -451,5 +498,15 @@ section > div img {
   }
   h2 {
     font-size: 1.6rem;
+  }
+  .text-block, .middle-text {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+  .scene-story .story-earth img {
+    width: 70%;
+  }
+  .scene-story .story-text {
+    gap: 2rem;
   }
 }/*# sourceMappingURL=styles.css.map */

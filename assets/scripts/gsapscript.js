@@ -1,122 +1,143 @@
+// Here i added detailed notes and comments for better undertanding and also that i can use for my js practices :) 
+// I took this opportunity to learn more about GSAP and different js functions which benefits me in the upcoming exam so that is why there are small notes 
+
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
+// Run when the entire HTML document is fully loaded and parsed
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll to first scene
-  const startButton = document.getElementById('startButton');
-  const firstScene = document.querySelector('#scene1');
-  
-  if (startButton && firstScene) {
-    startButton.addEventListener('click', () => scrollToScene(firstScene));
-  }
+  // === Scroll to first scene on "Start" button click ===
+  const startButton = document.getElementById('startButton'); // Select the Start button
+  const firstScene = document.querySelector('#scene1');       // Select the first scene section
+  // Add click listener if button and scene exist, scroll smoothly to first scene
+  startButton?.addEventListener('click', () => scrollToScene(firstScene));
 
-  // Animate .text-block and .middle-text on scroll
+  // this will animate content blocks and middle text as they enter/leave viewport on scroll ===
   document.querySelectorAll('.text-block, .middle-text').forEach(block => {
+    // Initially hide the block and move it down 20px (ready for animation)
     gsap.set(block, { opacity: 0, y: 20 });
 
+    // Create scroll trigger linked to this block
     ScrollTrigger.create({
-      trigger: block,
-      start: "top 90%",
-      end: "bottom 20%",
-      scrub: 0.5,
-      onEnter: () => gsap.to(block, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }),
-      onLeave: () => gsap.to(block, { opacity: 0, y: -20, duration: 1.5, ease: "power2.in" }),
-      onEnterBack: () => gsap.to(block, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }),
-      onLeaveBack: () => gsap.to(block, { opacity: 0, y: 20, duration: 1.5, ease: "power2.in" })
+      trigger: block,         // Element to watch
+      start: 'top 90%',       // Animation start point relative to viewport
+      end: 'bottom 20%',      // Animation end point relative to viewport
+      scrub: 0.5,             // Smooth scrubbing tied to scroll progress
+      onEnter: () => gsap.to(block, { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }),      // Fade in and slide up
+      onLeave: () => gsap.to(block, { opacity: 0, y: -20, duration: 1.5, ease: 'power2.in' }),     // Fade out and slide up out of view
+      onEnterBack: () => gsap.to(block, { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }),  // Fade in and slide down on reverse scroll
+      onLeaveBack: () => gsap.to(block, { opacity: 0, y: 20, duration: 1.5, ease: 'power2.in' })   // Fade out and slide down when scrolling back
     });
   });
 
-  // Scene 5: Manual "Next" dialog typing
+  // Scene 5: Manual typing effect for dialog facts (interactive)
+  // Define the facts to be typed out in the dialog
+  // and track the current index and typing state
   const facts = [
     "Deforestation destroys 10 million hectares of forest every year.",
     "Over 800 million people go to bed hungry each night.",
     "Air pollution causes 7 million premature deaths annually."
   ];
+  let currentIndex = 0;  // Track which fact to show next
+  let isTyping = false;  // Track if typing is in progress
+  const dialogLine = document.querySelector('.dialog-line'); // Text container for typing effect
+  const continueBtn = document.getElementById('continue-btn'); // Button to advance dialog
 
-  let currentIndex = 0;
-  const dialogLine = document.querySelector(".dialog-line");
-  const button = document.getElementById("continue-btn");
-
-  // Typewriter function
-  let isTyping = false;
+  // Function to type text letter by letter
   function typeText(text, callback) {
-    let charIndex = 0;
-    dialogLine.textContent = "";
-    isTyping = true;
+    let i = 0;
+    dialogLine.textContent = '';  // Clear previous text
+    isTyping = true;              // Mark typing started
 
     const interval = setInterval(() => {
-      if (charIndex < text.length) {
-        dialogLine.textContent += text.charAt(charIndex);
-        charIndex++;
+      if (i < text.length) {
+        dialogLine.textContent += text.charAt(i++);  // Add one char at a time
       } else {
-        clearInterval(interval);
-        isTyping = false;
-        if (callback) callback();
+        clearInterval(interval);  // Stop typing when done
+        isTyping = false;         // Mark typing finished
+        callback?.();             // Call callback if provided
       }
-    }, 40); // speed
+    }, 40); // Speed of typing in ms per character
   }
 
-  // Button event handler for typing
-  button.addEventListener("click", () => {
-    if (isTyping) return; 
-
+  // Button click event (listnener) to trigger typing next fact or disable button when done
+  continueBtn?.addEventListener('click', () => {
+    if (isTyping) return;  // Prevent spamming button while typing
     if (currentIndex < facts.length) {
-      typeText(facts[currentIndex], () => currentIndex++);
+      typeText(facts[currentIndex], () => currentIndex++);  // Type next fact
     } else {
-      typeText("I am sick! and...");
-      button.disabled = true;
+      typeText("I am sick! and...");  // Final message
+      continueBtn.disabled = true;    // Disable button after final message
     }
   });
 
-  // Fade-in for final scenes
-  ['#scene-help', '#scene-ignore', '#ending'].forEach(selector => {
-    const section = document.querySelector(selector);
-    if (section) {
-      gsap.set(section, { opacity: 0, y: 50 });
+  // this is the Fade-in animation for final scenes as user scrolls down 
+  ['#scene-help', '#scene-ignore', '#ending'].forEach(id => {
+    const el = document.querySelector(id);
+    if (!el) return;
 
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top 90%',
-        onEnter: () => {
-          gsap.to(section, {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-            ease: 'power2.out'
-          });
-          section.classList.add('visible-scene');
-        }
-      });
-    }
-  });
+    // Set initial state hidden and offset down
+    gsap.set(el, { opacity: 0, y: 50 });
 
-  // Scroll back to top
-  const backToTop = document.getElementById('backToTop');
-  if (backToTop) {
-    backToTop.addEventListener('click', () => {
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: { y: 0 },
-        ease: "power2.inOut"
-      });
+    // Create scroll trigger to fade in and slide up when scene enters viewport
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 90%',
+      onEnter: () => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: 'power2.out'
+        });
+        el.classList.add('visible-scene'); // Optional: add class for CSS if needed
+      }
     });
-  }
+  });
+
+  // Smooth scroll to top on Back to Top button click 
+  document.getElementById('backToTop')?.addEventListener('click', () => {
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: { y: 0 },
+      ease: 'power2.inOut'
+    });
+  });
 });
 
-// Generic scroll helper for scene buttons
+// 1Helper: Scroll smoothly to a scene by ID 
 function goToScene(id) {
   const section = document.getElementById(id);
   if (section) scrollToScene(section);
 }
 
-// Robust scroll function
-function scrollToScene(targetSection) {
-  const rect = targetSection.getBoundingClientRect();
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const targetY = rect.top + scrollTop;
-
+// 2Helper: Perform the smooth scrolling animation to target element 
+function scrollToScene(target) {
+  const y = target.getBoundingClientRect().top + window.pageYOffset;
   gsap.to(window, {
     duration: 1.5,
-    scrollTo: { y: targetY },
-    ease: "power2.inOut"
+    scrollTo: { y },
+    ease: 'power2.inOut'
   });
 }
+
+// This animate each text block inside .scene-story on scroll ===
+document.querySelectorAll('.scene-story .text-block').forEach(block => {
+  // Set initial hidden and offset state
+  gsap.set(block, { opacity: 0, y: 30 });
+
+  ScrollTrigger.create({
+    trigger: block,
+    start: 'top 90%',
+    onEnter: () => {
+      gsap.to(block, {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: 'power2.out'
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(block, { opacity: 0, y: 30, duration: 1.2, ease: 'power2.in' });
+    }
+  });
+});

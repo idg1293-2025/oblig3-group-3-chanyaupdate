@@ -110,20 +110,44 @@
     </div>
   </section>
 
-  <!-- Scene 9 – Earth speaks to user -->
-  <section id="scene-choice-container" class="container-scene">
-    <div class="text-block auto-dialog" data-lines="Are you listening?|Do you hear me now?">
-      <p class="dialog-line"></p>
-    </div>
-  
-    <div class="text-block">
-      <p>What will you do?</p>
-      <button onclick="goToScene('scene-help')">Help Earth</button>
-      <button onclick="goToScene('scene-ignore')">Ignore</button>
-    </div>
-  </section>
 
-  <!-- Scene 11 – Positive ending -->
+
+    <!-- scene 9 - short stories and dialogs  -->
+    <section class="scene-story">
+        <div class="story-layout">
+          <div class="story-earth">
+            <img src="assets/images/sadearth.svg" alt="Sad Earth floating">
+          </div>
+      
+          <div class="story-text">
+            <div class="text-block">I was once calm. You were kind.</div>
+            <div class="text-block">Together, we flourished — skies clear, waters singing.</div>
+            <div class="text-block">Then the engines came. So loud. So fast.</div>
+            <div class="text-block">You forgot me…</div>
+            <div class="text-block">But maybe... you’re remembering again?</div>
+          </div>
+        </div>
+      </section>
+
+          <!-- Scene 10 -->
+     <section class="container-scene">
+        <div class="middle-text">
+        <img src="assets/images/scene10.PNG" alt="Earth floating in space" class="earth-image" />
+          <p>Now i will show you the consequences of your actions.</p>
+        </div>
+      </section>
+  
+    <!-- Scene 11 – Decision point ( added wrapping )-->
+      <section id="scene-choice" class="container-scene">
+        <div class="text-block">
+          <p>What will you do?</p>
+          <button class="choice-button" onclick="goToScene('scene-help')">Help Earth</button>
+          <button class="choice-button" onclick="goToScene('scene-ignore')">Ignore</button>
+        </div>
+      </section>
+
+
+  <!-- Scene 12 – Positive ending -->
   <section id="scene-help">
     <div class="middle-text">
       <p>Thank you.</p>
@@ -133,7 +157,7 @@
     </div>
   </section>
 
-<!-- Scene 12 – Negative ending -->
+<!-- Scene 13 – Negative ending -->
 <section id="scene-ignore">
     <div class="middle-text">
       <p>You turned away.</p>
@@ -142,7 +166,7 @@
     </div>
   </section>
   
-  <!-- Scene 13 – Outro / Reminder -->
+  <!-- Scene 14 – Outro / Reminder -->
   <section class="ending" id="ending">
     <h2>This is the only home we have.</h2>
     <p>Take responsibility. Act today.</p>

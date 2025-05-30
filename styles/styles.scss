@@ -1,10 +1,29 @@
-// Variables
+// (variables)
 $font-family-body: 'Courier Prime', monospace;
 $font-family-titles: 'Poppins', sans-serif;
 $text-color: #6d6c6c;
 $background-color: #3e576f;
 
-// General Page Styling
+// (keyframes)
+@keyframes floatClouds {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(20px) translateY(-10px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes floatEarth {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+//Base styles
 html {
   font-size: 100%;
 }
@@ -40,59 +59,15 @@ p {
   text-align: center;
 }
 
-section > div {
-  position: relative;
-
-    .text-block {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      max-width: 100%;
-      padding: 2rem 2.5rem;
-      background-color: rgba(0, 0, 0, 0.75);
-      color: white;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 1.2rem;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-  
-      p {
-        margin-bottom: 0rem;
-      }
-  
-      button {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
-        background-color: #00c853;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  
-        &:hover {
-          background-color: #00b342;
-          transform: scale(1.05);
-        }
-  
-        &:focus-visible {
-          outline: 2px solid white;
-        }
-      }
-    }
-  }
-
-
+// styling for sections
 section > div img {
   width: 100%;
   display: block;
 }
 
 
+
+// (container)
 .container-scene {
   padding: 4rem 2rem;
   margin: 0 auto;
@@ -104,43 +79,13 @@ section > div img {
   text-align: center;
 
   .text-block {
-    max-width: 700px;
-    padding: 2rem 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
     background: transparent;
     box-shadow: none;
-
-    p {
-      font-size: 1.4rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    button {
-      margin-top: 1rem;
-      background-color: #009688;
-      color: white;
-      padding: 1rem 2.5rem;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-
-      &:hover {
-        background-color: #00796b;
-        transform: scale(1.05);
-      }
-
-      &:focus-visible {
-        outline: 3px solid white;
-      }
-    }
+    font-size: 1.5rem;
   }
 }
 
+// Dialogs and texts styling 
 .dialog-line {
   font-size: 1.4rem;
   line-height: 1.6;
@@ -162,61 +107,73 @@ section > div img {
   text-align: center;
 }
 
+.text-block {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  text-align: center;
+}
+
+//The hero!
 .screen--hero {
-  position: relative;
-  background: url('../assets/images/bg.png') no-repeat center center;
-  background-size: cover;
-  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+  justify-content: center; 
+  gap: 4rem; 
+  height: 100vh;
   padding: 2rem 4rem;
-  gap: 2rem;
+  background: url('../assets/images/bg.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 
   .hero-items {
-    position: relative;
-    flex: 1 1 40%;
+    flex: 0 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 400px;
+    position: relative;
 
     .earth {
-      width: 80%;
+      width: 100%;
+      max-width: 300px;
       animation: floatEarth 4s ease-in-out infinite;
     }
 
+    //clouds
+    //Here i complied it for easier management
     .cloud {
       position: absolute;
       width: 130px;
       opacity: 0.8;
       animation: floatClouds 6s ease-in-out infinite;
-    }
 
-    .cloud1 {
-      top: 2%;
-      left: 60%;
-    }
-
-    .cloud2 {
-      top: 20%;
-      left: -10%;
-      animation-delay: 1s;
-    }
-
-    .cloud3 {
-      top: 70%;
-      left: 1%;
-      animation-delay: 2s;
+      &.cloud1 { top: 2%; left: 60%; }
+      &.cloud2 { top: 20%; left: -10%; animation-delay: 1s; }
+      &.cloud3 { top: 70%; left: 1%; animation-delay: 2s; }
     }
   }
 
   .hero-content {
-    flex: 1 1 50%;
+    flex: 0 1 50%;
     text-align: left;
     color: white;
-    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;       
+    text-align: center; 
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: bold;
       margin-bottom: 1rem;
     }
@@ -239,9 +196,6 @@ section > div img {
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      text-align: center;
-      display: block;
-      margin: 0 auto;
 
       &:hover {
         background-color: #388e3c;
@@ -255,19 +209,134 @@ section > div img {
   }
 }
 
+// (scene story)
+.scene-story {
+  padding: 6rem 2rem;
+  color: white;
+  position: relative;
+
+  .story-layout {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .story-earth {
+    flex: 1;
+    position: sticky;
+    top: 20vh;
+
+    img {
+      width: 70%;
+      max-width: 300px;
+      animation: float 4s ease-in-out infinite;
+    }
+  }
+
+  .story-text {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    .text-block {
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 2rem;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      text-align: center;
+    }
+  }
+}
+
+// Applies only to certain sections
+// I had to do this method because then it would be confusing and too much repetition
+section > div:not(.story-layout):not(.container-scene) {
+  position: relative;
+
+  .text-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 2rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    opacity: 1;
+  }
+
+  #continue-btn {
+    margin-top: 1.5rem;
+    background-color: #2e7d32;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: $font-family-body;
+
+    &:hover {
+      background-color: #388e3c;
+      transform: scale(1.05);
+    }
+
+    &:focus-visible {
+      outline: 2px solid white;
+    }
+  }
+}
+
+// Decision buttons (scene-choice)
+.choice-button {
+  margin: 0.5rem 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #009688;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: $font-family-body;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid white;
+  }
+}
+
 #scene-help,
-#scene-ignore,
-#ending {
+#scene-ignore {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 6rem 2rem 4rem;
-  margin-top: 4rem;
-  color: white;
+  padding: 6rem 2rem 6rem;
+  margin-bottom: 4rem;
   text-align: center;
-
+  color: white;
 
   .middle-text {
     max-width: 700px;
@@ -281,12 +350,64 @@ section > div img {
       margin-bottom: 1.5rem;
     }
   }
+}
+
+.cta-button {
+  display: block;          
+  margin: 2rem auto;      
+  background-color: #00c853;
+  color: white;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: $font-family-body;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    background-color: #00b342;
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    outline: 3px solid white;
+  }
+}
+
+#ending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 6rem 2rem 8rem;
+  margin-bottom: 4rem;
+  color: white;
+  text-align: center;
+
+  h2 {
+    font-family: $font-family-body;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  p {
+    font-family: $font-family-body;
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+  }
 
   .cta-button {
     background-color: #00c853;
     color: white;
     padding: 1rem 2.5rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     border: none;
     border-radius: 10px;
@@ -295,60 +416,13 @@ section > div img {
     font-family: $font-family-body;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-
+    margin-top: 1.5rem;
+  
     &:hover {
       background-color: #00b342;
       transform: scale(1.05);
     }
-
-    &:focus-visible {
-      outline: 3px solid white;
-    }
-  }
-}
-
-.ending {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 6rem 2rem 4rem;
-  color: white;
-  text-align: center;
-
-  h2 {
-    font-family: $font-family-body;
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.4;
-  }
-
-  p {
-    font-family: $font-family-body;
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-  }
-
-  .cta-button {
-    background-color: #00c853;
-    color: white;
-    padding: 2rem 3%;
-    font-size: 2rem;
-    font-weight: bold;
-    width: 300px;
-    border: none;
-    border-radius: 12px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-
-    &:hover {
-      background-color: #00b342;
-      transform: scale(1.05);
-    }
-
+  
     &:focus-visible {
       outline: 3px solid white;
     }
@@ -382,23 +456,7 @@ section > div img {
   }
 }
 
-
-
-
-// Animations
-@keyframes floatClouds {
-  0% { transform: translateX(0) translateY(0); }  
-  50% { transform: translateX(20px) translateY(-10px); }
-  100% { transform: translateX(0) translateY(0); }
-}
-
-@keyframes floatEarth {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-// Media Queries
+// (media)
 @media screen and (max-width: 550px) {
   .screen--hero {
     flex-direction: column;
@@ -422,23 +480,6 @@ section > div img {
         width: 100px;
         position: absolute;
       }
-
-      .cloud1 {
-        top: 10%;
-        left: 60%;
-      }
-
-      .cloud2 {
-        top: 30%;
-        left: 25%;
-        animation-delay: 1s;
-      }
-
-      .cloud3 {
-        top: 10%;
-        left: 15%;
-        animation-delay: 2s;
-      }
     }
 
     .hero-content {
@@ -446,14 +487,8 @@ section > div img {
       padding: 0;
       text-align: center;
 
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; padding: 0 1rem; }
 
       .start-button {
         width: 70%;
@@ -468,7 +503,7 @@ section > div img {
 
     .text-block {
       padding: 1.5rem;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       box-shadow: none;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
@@ -477,14 +512,8 @@ section > div img {
       text-align: center;
       max-width: 100%;
 
-      p {
-        font-size: 1.1rem;
-      }
-
-      button {
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
-      }
+      p { font-size: 1.1rem; }
+      button { font-size: 1rem; padding: 0.8rem 1.5rem; }
     }
   }
 
@@ -493,7 +522,15 @@ section > div img {
     padding: 1rem;
   }
 
-  h2 {
-    font-size: 1.6rem;
+  h2 { font-size: 1.6rem; }
+
+  .text-block, .middle-text {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .scene-story {
+    .story-earth img { width: 70%; }
+    .story-text { gap: 2rem; }
   }
 }
