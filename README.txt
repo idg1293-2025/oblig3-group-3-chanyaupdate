@@ -145,4 +145,4 @@ Animations used:
 - Hero button hover 
 
 ------
-LIVE SERVER: https://chanyas.folk.ntnu.no/tellus-climatechange/oblig3.group-3-chanyaupdate/index.html
+LIVE SERVER: https://chanyas.folk.ntnu.no/tellus-climatechange/oblig3-group-3-chanyaupdate/index.html
